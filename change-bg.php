@@ -1,5 +1,7 @@
 <?php 
-
+/**
+ * @package change-bg
+ */
 /**
  * Plugin Name: Panel to change background color.
  * Plugin URI: https://michalsmietana.pl
@@ -9,11 +11,20 @@
  * Author URI: http://michalsmietana.pl
  * */
 
-// if( ! defined( 'ABSPATH' ) ) {
-//     die;
-// }
 defined( 'ABSPATH' ) or die( 'Hey, you can\t access this file, you silly human!' );
 
+class changeBG
+{
+    function activate(){
 
+    }
+    function deactivate(){
+
+    }
+    function uninstall(){
+
+    }
+}
+if ( class_exists( 'changeBG' ) )
 
 ?>
