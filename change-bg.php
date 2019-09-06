@@ -13,7 +13,7 @@
 
 defined( 'ABSPATH' ) or die( 'Hey, you can\t access this file, you silly human!' );
 
-class changeBG
+class ChangeBG
 {
     function activate(){
 
@@ -25,6 +25,8 @@ class changeBG
 
     }
 }
-if ( class_exists( 'changeBG' ) )
+if ( class_exists( 'ChangeBG' ) ){
+    $changeBG = new ChangeBG();
+}
 
 ?>
