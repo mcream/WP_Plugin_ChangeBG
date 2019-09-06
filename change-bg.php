@@ -19,10 +19,13 @@ class ChangeBG
         add_action( 'init', array( $this, 'custom_post_type' ) );
     }
     function activate(){
-        echo 'Plugin został poprawnie zainstalowany';
+
+        $this->custom_post_type();
+        
+        flush_rewrite_rules();
     }
     function deactivate(){
-        echo 'Plugin NIE został poprawnie zainstalowany';
+        flush_rewrite_rules();
     }
     function uninstall(){
 
