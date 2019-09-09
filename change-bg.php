@@ -18,6 +18,9 @@ class ChangeBG
     function __construct(){
         add_action( 'init', array( $this, 'custom_post_type' ) );
     }
+    function register(){
+        add_action( 'admin_enqueue_scripts', array( $this, 'custom_post_type' ) );
+    }
     function activate(){
 
         $this->custom_post_type();
@@ -27,13 +30,15 @@ class ChangeBG
     function deactivate(){
         flush_rewrite_rules();
     }
-    function uninstall(){
-
-    }
+    
     function custom_post_type(){
         register_post_type( 'posty', ['public' => true, 'label' => 'Posty'] );
     }
+    function enqueue(){
+        wp_enqueue_style( 'mypluginstyle', plugins_url( '/assets/css/style.css' , __FILE__ ) );
+    }
 }
+
 if ( class_exists( 'ChangeBG' ) ){
     $changeBG = new ChangeBG();
 }
@@ -42,6 +47,5 @@ if ( class_exists( 'ChangeBG' ) ){
 register_activation_hook(__FILE__, array( $changeBG, 'activate' ));
 //deacti
 register_deactivation_hook(__FILE__, array( $changeBG, 'deactivate' ));
-//unin
 
 ?>
